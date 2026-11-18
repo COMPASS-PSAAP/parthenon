@@ -15,7 +15,7 @@
 # the public, perform publicly and display publicly, and to permit others to do so.
 #=========================================================================================
 
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.22)
 
 # Imports machine-specific configuration
 include(cmake/MachineCfg.cmake)
@@ -312,7 +312,7 @@ set(CMAKE_CXX_STANDARD 20)
 
 if (NOT TARGET Kokkos::kokkos)
   if (PARTHENON_IMPORT_KOKKOS)
-    find_package(Kokkos 4)
+    find_package(Kokkos 5.1)
     if (NOT Kokkos_FOUND)
       message(FATAL_ERROR "Could not find external Kokkos. Consider importing a Kokkos installation into your environment or disabling external Kokkos with e.g. -DPARTHENON_IMPORT_KOKKOS=OFF")
     else()
@@ -334,8 +334,6 @@ if (NOT TARGET Kokkos::kokkos)
       set(Kokkos_ENABLE_DEBUG ON CACHE BOOL "Most general debug settings")
       set(Kokkos_ENABLE_DEBUG_BOUNDS_CHECK ON CACHE BOOL
          "Bounds checking on Kokkos views")
-      set(Kokkos_ENABLE_DEBUG_DUALVIEW_MODIFY_CHECK ON CACHE BOOL
-          "Sanity checks on Kokkos DualView")
     endif()
 
     # Also enable Compiler warnings for Kokkos

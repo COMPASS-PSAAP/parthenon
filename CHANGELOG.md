@@ -9,6 +9,7 @@
 
 ### Changed (changing behavior/API/variables/...)
 - [[PR 1446]](https://github.com/parthenon-hpc-lab/parthenon/pull/1446) Die on repeatedly receiving SIGINT
+- Bump Kokkos to 5.3.0 and require Kokkos >= 5.1 and CMake >= 3.22
 
 ### Fixed (not changing behavior/API/variables/...)
 - [[PR 1445]](https://github.com/parthenon-hpc-lab/parthenon/pull/1445) Fix ownership for self-bordering blocks

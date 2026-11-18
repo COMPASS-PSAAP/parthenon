@@ -32,7 +32,7 @@ if (${MACHINE_VARIANT} MATCHES "cuda")
   endif()
 elseif (${MACHINE_VARIANT} MATCHES "hip")
   # using an arch that matches Hamilton at Hamburg Obs
-  set(Kokkos_ARCH_NAVI1030 ON CACHE BOOL "GPU architecture")
+  set(Kokkos_ARCH_AMD_GFX1030 ON CACHE BOOL "GPU architecture")
   set(Kokkos_ENABLE_HIP ON CACHE BOOL "Enable HIP")
   set(Kokkos_ENABLE_ZEN3 ON CACHE BOOL "Enable Zen3")
 else()
