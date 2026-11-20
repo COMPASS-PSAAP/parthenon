@@ -134,6 +134,8 @@ std::shared_ptr<StateDescriptor> Initialize(ParameterInput *pin) {
   pkg->AddParam<>("vx", vx);
   pkg->AddParam<>("vy", vy);
   pkg->AddParam<>("vz", vz);
+  // Team scratch level for the flux kernels: 0 is actual scratch (tiny); 1 is HBM
+  pkg->AddParam<>("scratch_level", pin->GetOrAddInteger("Advection", "scratch_level", 1));
   pkg->AddParam<>("k_par", k_par);
   pkg->AddParam<>("cos_a2", cos_a2);
   pkg->AddParam<>("cos_a3", cos_a3);
@@ -552,7 +554,8 @@ TaskStatus CalculateFluxes(std::shared_ptr<MeshBlockData<Real>> &rc) {
   const auto idx_v = index_map["v"].first;
   const auto v_const = idx_v < 0; // using "at own perill" magic number
 
-  const int scratch_level = 1; // 0 is actual scratch (tiny); 1 is HBM
+  const int scratch_level =
+      pkg->Param<int>("scratch_level"); // 0 is actual scratch (tiny); 1 is HBM
   const int nx1 = pmb->cellbounds.ncellsi(IndexDomain::entire);
   const int nvar = v.GetDim(4);
   std::size_t scratch_size_in_bytes =
