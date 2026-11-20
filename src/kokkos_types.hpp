@@ -48,7 +48,7 @@ using MemUnmanaged = Kokkos::MemoryTraits<Kokkos::Unmanaged>;
 #if defined(KOKKOS_ENABLE_CUDA)
 using BufMemSpace = Kokkos::CudaHostPinnedSpace::memory_space;
 #elif defined(KOKKOS_ENABLE_HIP)
-using BufMemSpace = Kokkos::Experimental::HipHostPinnedSpace::memory_space;
+using BufMemSpace = Kokkos::HIPHostPinnedSpace::memory_space;
 #else
 #error "Unknow comm buffer space for chose execution space."
 #endif

@@ -47,7 +47,7 @@ constexpr int NS = 2;
 #if defined(KOKKOS_ENABLE_CUDA)
 using UVMSpace = Kokkos::CudaUVMSpace;
 #elif defined(KOKKOS_ENABLE_HIP)
-using UVMSpace = Kokkos::Experimental::HIPHostPinnedSpace;
+using UVMSpace = Kokkos::HIPHostPinnedSpace;
 #else // all on host
 using UVMSpace = DevMemSpace;
 #endif

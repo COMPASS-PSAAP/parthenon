@@ -93,7 +93,7 @@ jobs:
             -DMACHINE_CFG=${PWD}/cmake/machinecfg/GitHubActions.cmake \
             -DMACHINE_VARIANT=${{ matrix.device }}_${{ matrix.parallel }} \
             -DCMAKE_PREFIX_PATH=/opt/rocm-7.2.4 \
-            -DKokkos_ARCH_AMD_GFX90A=ON -DKokkos_ARCH_NAVI1030=OFF
+            -DKokkos_ARCH_AMD_GFX90A=ON -DKokkos_ARCH_AMD_GFX1030=OFF
       - name: Build
         run: |
           cmake --build builddir --parallel 2
