@@ -46,6 +46,12 @@ endif()
 if(@OpenMP_FOUND@)
   find_package(OpenMP REQUIRED COMPONENTS CXX)
 endif()
+# The exported HDF5_C target names HDF5's library targets, which only exist
+# once HDF5 is found, so find it the way parthenon's own build did
+if(@ENABLE_HDF5@)
+  set(HDF5_PREFER_PARALLEL @ENABLE_MPI@)
+  find_package(HDF5 REQUIRED COMPONENTS C)
+endif()
 
 find_package(Filesystem REQUIRED COMPONENTS Experimental Final)
 
