@@ -12,6 +12,7 @@
 - [[COMPASS-PSAAP PR 1]](https://github.com/COMPASS-PSAAP/parthenon/pull/1) Bump Kokkos to 5.3.0 and require Kokkos >= 5.1 and CMake >= 3.22
 
 ### Fixed (not changing behavior/API/variables/...)
+- [[COMPASS-PSAAP PR 2]](https://github.com/COMPASS-PSAAP/parthenon/pull/2) Find HDF5 in `parthenonConfig.cmake` so downstream builds can link the exported `HDF5_C` target
 - [[COMPASS-PSAAP PR 1]](https://github.com/COMPASS-PSAAP/parthenon/pull/1) Build `particle-tracers` when regression tests need it
 - [[PR 1445]](https://github.com/parthenon-hpc-lab/parthenon/pull/1445) Fix ownership for self-bordering blocks
 - [[PR 1487]](https://github.com/parthenon-hpc-lab/parthenon/pull/1487) Checkout submodules once for doc build
